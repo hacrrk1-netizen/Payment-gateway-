@@ -17,7 +17,6 @@
         .timer { color: #f21818; font-size: 32px; font-weight: 800; margin-bottom: 20px; }
         
         .qr-section { margin-bottom: 25px; }
-        /* QR Box ko responsive banaya */
         .qr-box { width: 220px; height: 220px; margin: 0 auto; border: 1px solid #ddd; padding: 10px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
         .qr-label { font-size: 14px; font-weight: 600; margin-top: 10px; color: #1b539a; }
 
@@ -64,8 +63,7 @@
         <div class="timer" id="timer">10:00</div>
 
         <div class="qr-section">
-            <div class="qr-box" id="qrcode">
-                </div>
+            <div class="qr-box" id="qrcode"></div>
             <div class="qr-label">Scan this QR to pay ₹<span id="qr-amt">0</span></div>
         </div>
     </div>
@@ -93,7 +91,7 @@
         <div class="section-title">Manual transfer</div>
         <div class="step-title">1. Copy the below given UPI</div>
         <div class="upi-box">
-            <div class="upi-id" id="upiIdText">fbnanbspt@ptyes</div>
+            <div class="upi-id" id="upiIdText">9262981263@ptyes</div>
             <button class="copy-btn" onclick="copyUPI()">COPY</button>
         </div>
         <div class="tip">Tip: Dont save the UPI, get new UPI every time.</div>
@@ -117,13 +115,13 @@
 
     <script>
         const params = new URLSearchParams(window.location.search);
-        const amt = params.get('amount') || '100'; // Default 100 agar na mile
+        const amt = params.get('amount') || '100'; 
         document.getElementById('display-amount').innerText = amt;
         document.getElementById('qr-amt').innerText = amt;
 
-        const upiId = "9262981263@ptyes"; // Aapki UPI ID
+        // UPDATED UPI ID
+        const upiId = "9262981263@ptyes"; 
 
-        // --- DYNAMIC QR GENERATION LOGIC ---
         const upiLink = `upi://pay?pa=${upiId}&pn=Merchant&am=${amt}&cu=INR&tn=Deposit`;
         
         new QRCode(document.getElementById("qrcode"), {
@@ -157,5 +155,4 @@
         }, 1000);
     </script>
 </body>
-  </html>
-  
+</html>
